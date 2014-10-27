@@ -11,6 +11,68 @@ The following images are built from this project:
 
 ## Usage
 
+Run database migrations (the host DB must by MySQL compatible):
+
+    docker run --rm \
+      -e "RAILS_ENV=production" \
+      -e "DATABASE_NAME=TODO" \
+      -e "DATABASE_USERNAME=TODO" \
+      -e "DATABASE_PASSWORD=TODO" \
+      -e "DATABASE_HOST=todo.example.com" \
+      -e "DATABASE_PORT=TODO" \
+      -e "DATABASE_ENCODING=utf8mb4" \
+      hackedu/huginn rake db:create db:migrate
+
+Seed the database (optional):
+
+    docker run --rm \
+      -e "RAILS_ENV=production" \
+      -e "DATABASE_NAME=TODO" \
+      -e "DATABASE_USERNAME=TODO" \
+      -e "DATABASE_PASSWORD=TODO" \
+      -e "DATABASE_HOST=todo.example.com" \
+      -e "DATABASE_PORT=TODO" \
+      -e "DATABASE_ENCODING=utf8mb4" \
+      -e "SEED_USERNAME=TODO" \
+      -e "SEED_PASSWORD=TODO" \
+      hackedu/huginn rake db:seed
+
+Launch a web instance:
+
+    docker run -d \
+      -e "RAILS_ENV=production" \
+      -e "APP_SECRET_TOKEN=TODO (generate with rake secret)" \
+      -e "DATABASE_NAME=TODO" \
+      -e "DATABASE_USERNAME=TODO" \
+      -e "DATABASE_PASSWORD=TODO" \
+      -e "DATABASE_HOST=TODO" \
+      -e "DATABASE_PORT=TODO" \
+      -e "DATABASE_ENCODING=utf8mb4" \
+      -p 3000:3000 \
+      hackedu/huginn-web
+
+Launch a job worker instance:
+
+    docker run -d \
+      -e "RAILS_ENV=production" \
+      -e "APP_SECRET_TOKEN=TODO (generate with rake secret)" \
+      -e "DATABASE_NAME=TODO" \
+      -e "DATABASE_USERNAME=TODO" \
+      -e "DATABASE_PASSWORD=TODO" \
+      -e "DATABASE_HOST=TODO" \
+      -e "DATABASE_PORT=TODO" \
+      -e "DATABASE_ENCODING=utf8mb4" \
+      -p 3000:3000 \
+      hackedu/huginn-jobs
+
+You can override any environment variables when launching Huginn containers.
+For a list, see the
+[.env.example](https://github.com/cantino/huginn/blob/master/.env.example)
+file. Do note that there are additional required variables in the list, you'll
+want to add them when deploying.
+
+### Building
+
 Build all images:
 
     $ make build
