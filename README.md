@@ -21,6 +21,7 @@ Run database migrations (the host DB must by MySQL compatible):
       -e "DATABASE_HOST=todo.example.com" \
       -e "DATABASE_PORT=TODO" \
       -e "DATABASE_ENCODING=utf8mb4" \
+      -e "INVITATION_CODE=my-invitation-code" \
       hackedu/huginn rake db:migrate
 
 Seed the database (optional):
