@@ -1,9 +1,9 @@
 FROM rails
 MAINTAINER Zach Latta <zach@hackedu.us>
 
+ADD https://codeload.github.com/cantino/huginn/tar.gz/master \
+  /tmp/huginn.tar.gz
 RUN cd /tmp && \
-      curl https://codeload.github.com/cantino/huginn/tar.gz/master > \
-        huginn.tar.gz && \
       tar xzf huginn.tar.gz && \
       mv huginn-master /usr/src/app && \
       rm huginn.tar.gz
