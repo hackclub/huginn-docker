@@ -92,7 +92,7 @@ Makefile and the web and jobs Dockerfiles.
 
 The MIT License (MIT)
 
-Copyright (c) 2014 hackEDU
+Copyright (c) 2019 Hack Club
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
